@@ -2,14 +2,18 @@ package chapter17;
 
 import java.io.*;
 
+/**
+ * This class copies the content of one file to another.
+ * @author 
+ */
 public class Copy {
   /** Main method
-     @param args[0] for sourcefile 
+     @param args[0] for sourcefile
      @param args[1] for target file
    */
-  public static void main(String[] args) throws IOException { 
+  public static void main(String[] args) throws IOException {
     // Check command-line parameter usage
-    if (args.length != 2) { 
+    if (args.length != 2) {
       System.out.println(
         "Usage: java Copy sourceFile targetfile");
       System.exit(1);
@@ -18,7 +22,7 @@ public class Copy {
     // Check if source file exists
     File sourceFile = new File(args[0]);
     if (!sourceFile.exists()) {
-       System.out.println("Source file " + args[0] 
+       System.out.println("Source file " + args[0]
          + " does not exist");
        System.exit(2);
     }
@@ -26,20 +30,20 @@ public class Copy {
     // Check if target file exists
     File targetFile = new File(args[1]);
     if (targetFile.exists()) {
-      System.out.println("Target file " + args[1] 
+      System.out.println("Target file " + args[1]
         + " already exists");
       System.exit(3);
     }
 
     try (
       // Create an input stream
-      BufferedInputStream input = 
+      BufferedInputStream input =
         new BufferedInputStream(new FileInputStream(sourceFile));
-  
+
       // Create an output stream
-      BufferedOutputStream output = 
+      BufferedOutputStream output =
         new BufferedOutputStream(new FileOutputStream(targetFile));
-    ) 
+    )
     {
       // Continuously read a byte from input and write it to output
       int r, numberOfBytesCopied = 0;
