@@ -4,7 +4,7 @@ import java.io.*;
 
 /**
  * This class copies the content of one file to another.
- * @author 
+ * @author Unknown
  */
 public class Copy {
   /** Main method
